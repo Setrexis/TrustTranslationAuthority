@@ -1,0 +1,147 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+<groupId>eu.lightest</groupId>
+    
+ <version>1.0</version> 
+   
+    
+	
+
+
+ 	<name>TTA</name>
+	<artifactId>TTA</artifactId>
+    <packaging>war</packaging>
+
+    <build>
+        <finalName>ttaFM</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.glassfish.jersey</groupId>
+                <artifactId>jersey-bom</artifactId>
+                <version>${jersey.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <repositories>
+        <repository>
+	    <id>joinup-dss-thirdparty</id>
+	    <url>http://joinup.ec.europa.eu/site/sd-dss/maven2</url>
+        </repository>
+	<repository>
+	    <id>cefdigital</id>
+	    <name>CEF Digital</name>
+	    <url>https://ec.europa.eu/cefdigital/artifact/content/repositories/esignaturedss/</url>
+	</repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
+            <!-- use the following artifactId if you don't need servlet 2.x compatibility -->
+            <!-- artifactId>jersey-container-servlet</artifactId -->
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+        </dependency>
+       
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-binding</artifactId>
+        </dependency>
+       
+        <dependency>
+			<groupId>org.w3c</groupId>
+			<artifactId>dom</artifactId>
+			<version>2.3.0-jaxb-1.0.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20151123</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+		
+		
+				<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+				<dependency>
+					<groupId>eu.europa.ec.joinup.sd-dss</groupId>
+					<artifactId>dss-remote-services</artifactId>
+					<version>5.3.2</version>
+				</dependency>
+				<dependency>
+					<groupId>eu.europa.ec.joinup.sd-dss</groupId>
+					<artifactId>dss-service</artifactId>
+					<version>5.3.2</version>
+				</dependency>
+				<dependency>
+					<groupId>eu.europa.ec.joinup.sd-dss</groupId>
+					<artifactId>dss-token</artifactId>
+					<version>5.3.2</version>
+				</dependency>
+				<dependency>
+					<groupId>eu.europa.ec.joinup.sd-dss</groupId>
+					<artifactId>dss-utils</artifactId>
+					<version>5.3.2</version>
+				</dependency>
+				<dependency>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-simple</artifactId>
+					<version>1.7.25</version>
+				</dependency>
+				<dependency>
+					<groupId>eu.europa.ec.joinup.sd-dss</groupId>
+					<artifactId>dss-utils-google-guava</artifactId>
+					<version>5.3.2</version>
+				</dependency>
+				<dependency>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcpkix-jdk15on</artifactId>
+					<version>1.59</version>
+				</dependency>
+				<dependency>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcprov-jdk15on</artifactId>
+					<version>1.59</version>
+				</dependency>
+				 <dependency>
+          <groupId>com.squareup.okhttp3</groupId>
+          <artifactId>okhttp</artifactId>
+          <version>3.10.0</version>
+      </dependency>
+    </dependencies>
+    <properties>
+        <jersey.version>2.27</jersey.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+</project>
