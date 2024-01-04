@@ -61,7 +61,7 @@ public class TTAManagerRsc {
 	 * 
 	 */
 	static void initialize() {
-		PropertyConfigurator.configure("../conf/rest_log4j.properties");
+		PropertyConfigurator.configure("/usr/local/tomcat/conf/rest_log4j.properties");
 
 		IConnector conn = InternalStorageConnectorFactory.getConnector();
 		conn.initialize();

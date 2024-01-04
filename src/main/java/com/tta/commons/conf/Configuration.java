@@ -19,11 +19,9 @@
 
 package com.tta.commons.conf;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.Set;
 
@@ -45,7 +43,7 @@ import org.json.JSONObject;
  */
 public class Configuration {
   
-  static Logger logger_= Logger.getLogger("Configuration.class");
+  static Logger logger_= Logger.getLogger(Configuration.class);
   
   
   static Configuration conf_= null;
@@ -57,7 +55,7 @@ public class Configuration {
    */
   private Configuration(){
 	  
-    try (InputStream input = new FileInputStream("../conf/ttaFM.properties")){
+    try (InputStream input = Files.newInputStream(Paths.get("/usr/local/tomcat/conf/ttaFM.properties"))){
       
       prop_ = new Properties();
       prop_.load(input);
@@ -116,7 +114,7 @@ public class Configuration {
 public boolean setProperty (String name, String value) {
 	  if ((name != null) && (!name.isEmpty())&&(value!=null)&&(!value.isEmpty())) {
 		  prop_.setProperty(name, value);
-		  try (OutputStream out = new FileOutputStream("../conf/ttaFM.properties")){
+		  try (OutputStream out = Files.newOutputStream(Paths.get("/usr/local/tomcat/conf/ttaFM.properties"))){
 			  prop_.store(out, null);
 			out.flush();
 			

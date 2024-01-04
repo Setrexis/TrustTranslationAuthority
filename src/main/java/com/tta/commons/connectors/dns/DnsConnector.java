@@ -50,7 +50,7 @@ import okhttp3.Response;
  */
 public class DnsConnector {
 
-	private String dnsServiceSubDom = "/translation/";
+	private String dnsServiceSubDom = "/translation";
 	private String dnsSecurityToken = "Bearer ";
 	private String dnsSecurityHeader = "Authorization";
 
@@ -206,6 +206,8 @@ public class DnsConnector {
 	private String getURISchemeName(TranslationAgreement agr) {
 
 		String schemeName = getDeclarationFileRecordAim(agr);
+		if (Configuration.getConfiguration().getProperty(PropertyNames.DNS_DOMAIN) == null)
+			return schemeName;
 		return schemeName + Configuration.getConfiguration().getProperty(PropertyNames.DNS_DOMAIN);
 	}
 

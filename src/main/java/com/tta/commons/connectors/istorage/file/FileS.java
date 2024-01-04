@@ -66,6 +66,8 @@ public class FileS implements IConnector{
 		String dir = Configuration.getConfiguration().getProperty(PropertyNames.FILE_STORAGE_PATH);
 		File f = new File (dir);
 		File[] fileArray = f.listFiles();
+
+		logger.info("loading agreements from file system " + dir);
 		
 		for (int i=0; i<fileArray.length; i++) {
 			if (fileArray[i].isFile() && fileArray[i].getName().endsWith("json")) {
