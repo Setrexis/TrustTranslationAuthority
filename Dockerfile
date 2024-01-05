@@ -14,6 +14,8 @@ RUN ln -s /usr/local/tomcat/lightest/tta/files/ /usr/local/tomcat/lightest/tta/f
 
 
 ADD tta.pfx /usr/local/tomcat/lightest/tta.pfx
+#ADD key.pem /usr/local/tomcat/key.pem
+#ADD cert.pem /usr/local/tomcat/cert.pem
 
 #ADD server.xml /usr/local/tomcat/conf/server.xml
 
